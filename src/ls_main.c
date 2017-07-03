@@ -114,9 +114,11 @@ void	show_usage(char option)
 
 int		main(int ac, char **av)
 {
-	t_params	*par;
-	int 		i;
-	int 		false_option;
+	t_params		*par;
+	int 			i;
+	int 			false_option;
+	DIR				*curr_dir;
+	struct dirent	*next_obj;
 
 	i = 0;
 	if (ac > 1)
@@ -133,6 +135,15 @@ int		main(int ac, char **av)
 			ft_putendl(par->dirs[i]);
 			i++;
 		}
+	}
+	curr_dir = opendir(par->dirs[0]);
+	if (curr_dir)
+	{
+		printf("\n\nDir \"%s\" is opened\n-----------------------\n", par->dirs[0]);
+	}
+	while (next_obj = readdir(curr_dir))
+	{
+		printf("%s\n", next_obj->d_name);
 	}
 	return (0);
 }

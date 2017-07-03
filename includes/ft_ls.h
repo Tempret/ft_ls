@@ -15,6 +15,7 @@
 
 # include <stdio.h>
 # include "../libft/libft.h"
+# include <dirent.h>
 
 #define	AVAILIBLE_OPTIONS	"lraRt"
 #define TRUE				1
